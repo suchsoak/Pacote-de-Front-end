@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formulário de cadastro de clientes">
+    <title>Formulário</title>
+    <style>
+     /* CSS  */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+        form input, form button {
+            width: 100%;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+        }
+        form input {
+            background-color: #444;
+            color: #fff;
+            padding: 10px;
+        }
+        form input:focus {
+            outline: 2px solid #a8d500;
+        }
+        form button {
+            background-color: #a8d500;
+            color: #000000;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 10px;
+        }
+        form button:hover {
+            background-color: #94bf00;
+        }
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .checkbox-group legend {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .checkbox-group label {
+            display: flex; /* Alinha o checkbox e o texto na mesma linha */
+            align-items: center; /* Centraliza verticalmente o texto com o checkbox */
+            gap: 10px; /* Espaçamento entre o checkbox e o texto */
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .checkbox-group input[type="checkbox"] {
+            margin: 0; /* Remove margens extras */
+            padding: 0; /* Remove preenchimento extra */
+            width: 16px; /* Tamanho fixo do checkbox */
+            height: 16px; /* Tamanho fixo do checkbox */
+        }
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        // JavaScript
+        function validateCPF(cpf) {
+            // Remove caracteres não numéricos
+            cpf = cpf.replace(/[^\d]/g, "");
+
+            return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+
+            // Verifica se tem 11 dígitos ou se todos os dígitos são iguais
+            if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) {
+                return false;
+            }
+
+            return true;
+        }
+
+        function validateCNPJ(cnpj) {
+            // Remove caracteres não numéricos
+            cnpj = cnpj.replace(/\D/g, "")
+            if (cnpj.length !== 14 || /^(\d)\1{13}$/.test(cnpj)) {
+                return false;
+            }
+
+            if (cnpj < 11){
+
+            }
+
+            return true;
+        }
+
+        function validateEmail(email) {
+            // Expressão regular para validar e-mail
+            const regex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+            return regex.test(email);
+        }
+
+        function validateTelefone(telefone) {
+            // Expressão regular para validar telefone
+            const regex = /^\(\d{2}\) \d{4,5}-\d{4}$/;
+
+            return regex.test(telefone);
+        }
+
+        function validateForm(event) {
+            event.preventDefault();
+            const form = document.getElementById("form");
+            const formError = document.getElementById("form-error");
+            const formSuccess = document.getElementById("form-success");
+
+            const cpfInput = document.getElementById("cpf");
+            const cpfError = document.getElementById("cpf-error");
+            const cpf = cpfInput.value;
+
+            const cnpjInput = document.getElementById("cnpj");
+            const cnpjError = document.getElementById("cnpj-error");
+            const cnpj = cnpjInput.value;
+
+            const nomeInput = document.getElementById("nome");
+            const nomeError = document.getElementById("nome-error");
+            const nome = nomeInput.value;
+
+            const emailInput = document.getElementById("email");
+            const emailError = document.getElementById("email-error");
+            const email = emailInput.value;
+
+            const cidadeInput = document.getElementById("cidade");
+            const cidadeError = document.getElementById("cidade-error");
+            const cidade = cidadeInput.value;
+
+            let valid = true;
+
+            if (!validateCPF(cpf)) {
+                cpfError.textContent = "CPF inválido.";
+                cpfInput.classList.add("error");
+                valid = false;
+            } else {
+                cpfError.textContent = "";
+                cpfInput.classList.remove("error");
+            }
+
+            if (!validateCNPJ(cnpj)) {
+                cnpjError.textContent = "CNPJ inválido.";
+                cnpjInput.classList.add("error");
+                valid = false;
+            } else {
+                cnpjError.textContent = "";
+                cnpjInput.classList.remove("error");
+            }
+
+            if (!validateEmail(email)) {
+                emailError.textContent = "E-mail inválido.";
+                emailInput.classList.add("error");
+                valid = false;
+            } else {
+                emailError.textContent = "";
+                emailInput.classList.remove("error");
+            }
+
+            if (valid) {
+                form.submit();
+                window.location.href = "https://www.exemplo.com/obrigado";
+                console.log("Nome: " + nome);
+                console.log("E-mail: " + email);
+                console.log("CPF: " + cpf);
+                console.log("CNPJ: " + cnpj);
+                console.log("Cidade: " + cidade);
+                console.log("Telefone: " + telefone);
+                console.log("Perfil: " + perfil);
+                console.log("Formulário enviado com sucesso!");
+                console.log("Redirecionando para a página de agradecimento...");
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById("form");
+            form.addEventListener("submit", validateForm);
+        });
+    </script>
+</head>
+<body>
+    <form id="form" action="1" method="POST">
+        <label for="nome" style="color: white;"></label>
+        <input type="text" id="nome" name="nome" placeholder="Nome" required />
+        <span id="nome-error" class="error-message"></span>
+
+        <label for="razao_social" style="color: white;"></label>
+        <input type="text" id="razao_social" name="razao_social" placeholder="* Nome da loja (Razão Social)" required />
+        <span id="razao_social-error" class="error-message"></span>
+
+        <label for="email" style="color: white;"></label>
+        <span id="email-error" class="error-message"></span>
+        <input type="email" id="email" name="email" placeholder="* E-mail" required />
+
+
+        <label for="cnpj" style="color: white;"></label>
+        <span id="cnpj-error" class="error-message"></span>
+        <input type="number" id="cnpj" name="cnpj"  minlength="12" maxlength="14" placeholder="* CNPJ" required />
+
+        <label for="cpf" style="color: white;"></label>
+        <span id="cpf-error" class="error-message"></span>
+        <input type="number" id="cpf" name="cpf" maxlength="14"  placeholder="* CPF" required />
+
+
+        <label for="cidade" style="color: white;"></label>
+        <span id="cidade-error" class="error-message"></span>
+        <input type="text" id="cidade" name="cidade" placeholder="* Cidade e estado" required />
+
+        <label for="telefone" style="color: white;"></label>
+        <span id="telefone-error" class="error-message"></span>
+        <input type="tel" id="telefone" name="telefone" maxlength="12" placeholder="Telefone" />
+
+        <div class="checkbox-group">
+            <h3 style="color: rgb(0, 0, 0);">*Selecione uma opção.</h3>
+            <label>
+                <input type="checkbox" name="perfil" value="Logista/profissionais da área" />
+                <p style="color: rgb(0, 0, 0);">Logista/profissionais da área</p>
+            </label>
+            <label>
+                <input type="checkbox" name="perfil" value="Representante"/>
+                <p style="color: rgb(0, 0, 0);">Representante</p>
+            </label>
+            <label>
+                <input type="checkbox" name="perfil" value="Expositor"/>
+                <p style="color: rgb(0, 0, 0);">Expositor </p>
+            </label>
+            <br>
+        </div>
+        <button type="submit">Enviar agora mesmo</button>
+        <span id="form-error" class="error-message"></span>
+    </form>
+</body>
+</html>
