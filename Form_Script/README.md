@@ -3,7 +3,7 @@
 >[!TIP]
 >O script está em um arquivo `HTML` com código em conjunto de `Javascript` e `CSS`
 
-Este é um scrip para formulário que valida *CPF*, *CNPJ* e outros dados.
+Este é um scrip para formulário que valida `CPF`, `CNPJ` e outros dados.
 
 O script foi desenvolvido com uma finidade original, de validação de alguns dados para colocar em plataforma de desenvolvimento de site. A exemplo do `GreatPages` a qual foi utilizado.
 
