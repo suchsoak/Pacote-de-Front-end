@@ -13,7 +13,3 @@ O script foi desenvolvido com uma finidade original, de validação de alguns da
 |  CSS  | [https://developer.mozilla.org/pt-BR/docs/Web/CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
 |  Javascript  | [https://developer.mozilla.org/pt-BR/docs/Web/JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 |  HTML  | [https://developer.mozilla.org/pt-BR/docs/Web/HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
-
-
-# License & Copyright
-`BSD 3-Clause "New" or "Revised" License - Copyright (c) 2024, ~#M?x`
