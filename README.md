@@ -6,6 +6,7 @@ Um repositório com formulários, botões e diversas funções para ajudar a dei
 | ------ | ------ |
 |  Formulário  | [https://github.com/suchsoak/Pacote-de-Front-end/tree/main/Form_Script](https://github.com/suchsoak/Pacote-de-Front-end/tree/main/Form_Script)
 |  Botão  | https://github.com/suchsoak/Pacote-de-Front-end/tree/main/Button
+|  Cookie CSS para o GreatPages  | https://github.com/suchsoak/Pacote-de-Front-end/tree/main/Cookie_CSS_GreatPages
 
 # License & Copyright
 `BSD 3-Clause "New" or "Revised" License - Copyright (c) 2024, ~#M?x`
