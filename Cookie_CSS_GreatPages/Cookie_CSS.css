@@ -1,0 +1,17 @@
+<style>
+#gpc-lgpd_botoes-confirmar{
+color: #FFFFFF!important;
+background: #000000 !important;
+opacity:1;
+transition: all .85s ease;
+}
+
+#gpc-lgpd_botoes-confirmar:hover{
+opacity:0.85;
+}
+
+.gpc-lgpd-cor_ffffff {
+    background-color: #c7804a;
+}
+
+</style>
