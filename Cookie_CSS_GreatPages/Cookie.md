@@ -33,5 +33,5 @@ opacity:0.85;
 
 | Utilitários |  Link |
 | ------ | ------ |
-|  GreatPages Cookie  | [https://ajuda.greatsoftwares.com.br/pt-br/article/como-alterar-a-cor-do-botao-de-aviso-de-cookies-1mjx7zj/] (https://ajuda.greatsoftwares.com.br/pt-br/article/como-alterar-a-cor-do-botao-de-aviso-de-cookies-1mjx7zj/)
+|  GreatPages Cookie  | https://ajuda.greatsoftwares.com.br/pt-br/article/como-alterar-a-cor-do-botao-de-aviso-de-cookies-1mjx7zj/
 
