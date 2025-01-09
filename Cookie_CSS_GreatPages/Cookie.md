@@ -27,6 +27,10 @@ opacity:0.85;
 
 ```
 
+<p align="center">
+  <img src="https://github.com/suchsoak/Pacote-de-Front-end/blob/main/Cookie_CSS_GreatPages/Captura%20de%20tela%202025-01-09%20150119.png" alt="Cookie.png">
+</p>
+
 | Utilitários |  Link |
 | ------ | ------ |
 |  GreatPages Cookie  | [https://ajuda.greatsoftwares.com.br/pt-br/article/como-alterar-a-cor-do-botao-de-aviso-de-cookies-1mjx7zj/] (https://ajuda.greatsoftwares.com.br/pt-br/article/como-alterar-a-cor-do-botao-de-aviso-de-cookies-1mjx7zj/)
