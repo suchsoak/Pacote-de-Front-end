@@ -16,6 +16,37 @@ No script para enviar algo via webhook pode-se colocar um link nessa parte do c�
         <span id="nome-error" class="error-message"></span>
 ```
 
+Caso queira colocar um sistema de verificação de duplicação de CPF, aqui está um scrip a parte. Utilizado junto com um script para o `APPS SCRIPT do Google`, usando uma chave API de um `Excel`.
+
+```sh
+ async function verificarCPF(cpf) {
+
+         if (!cpf) {
+             return false;
+         }
+
+         try {
+             const response = await fetch ('https://script.google.com/macros/s/verifique_o_CPF' + cpf)
+
+             const data = await response.json();
+
+             if (data.error) {
+                 alert("Este CPF já está cadastrado!");
+                 document.getElementById("cpf").value = ""; 
+                 return false;
+             } else {
+                 console.log("CPF válido!");
+                 alert("CPF válido!");
+                 return true;
+             }
+         } catch (error) {
+             console.error("Erro ao verificar CPF:", error);
+             return false;
+         }
+         }
+
+```
+
 | Utilitários |  Link |
 | ------ | ------ |
 |  GreatPages  | [https://www.greatpages.com.br](https://www.greatpages.com.br)
@@ -23,3 +54,5 @@ No script para enviar algo via webhook pode-se colocar um link nessa parte do c�
 |  Javascript  | [https://developer.mozilla.org/pt-BR/docs/Web/JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 |  HTML  | [https://developer.mozilla.org/pt-BR/docs/Web/HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
 |  Webhook  | https://webhook.site
+|  Apps Script  | https://developers.google.com/apps-script?hl=pt-br
+
