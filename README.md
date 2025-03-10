@@ -9,4 +9,4 @@ Um repositório com formulários, botões e diversas funções para ajudar a dei
 |  Cookie CSS para o GreatPages  | [https://github.com/suchsoak/Pacote-de-Front-end/tree/main/Cookie_CSS_GreatPages](https://github.com/suchsoak/Pacote-de-Front-end/blob/main/Cookie_CSS_GreatPages/Cookie.md)
 
 # License & Copyright
-`BSD 3-Clause "New" or "Revised" License - Copyright (c) 2024, ~#M?x`
+`BSD 3-Clause "New" or "Revised" License - Copyright (c) 2025, ~#M?x`
