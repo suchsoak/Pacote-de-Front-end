@@ -54,6 +54,14 @@ Aqui você muda a pulsação do botão, serão as *cores que estarão mostrando*
 
 <br>
 
+# Veja aqui como fica em uma página real:
+
+<p align="center">
+  <img src="https://github.com/suchsoak/Pacote-de-Front-end/blob/main/Whatsapp_Botão/Captura%20de%20tela%202025-03-25%20120310.png">
+</p>
+
+
 | Utilitários |  Link |
 | ------ | ------ |
 |  GreatPages Whatsapp Botão Flutuante  | https://ajuda.greatsoftwares.com.br/pt-br/article/como-criar-um-botao-flutuante-do-whatsapp-19a12fy/
+|  Site de exemplo  | https://www.animallecurso.com
