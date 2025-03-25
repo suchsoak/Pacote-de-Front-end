@@ -7,6 +7,7 @@ Um repositório com formulários, botões e diversas funções para ajudar a dei
 |  Formulário  | [https://github.com/suchsoak/Pacote-de-Front-end/tree/main/Form_Script](https://github.com/suchsoak/Pacote-de-Front-end/tree/main/Form_Script)
 |  Botão  | https://github.com/suchsoak/Pacote-de-Front-end/tree/main/Button
 |  Cookie CSS para o GreatPages  | [https://github.com/suchsoak/Pacote-de-Front-end/tree/main/Cookie_CSS_GreatPages](https://github.com/suchsoak/Pacote-de-Front-end/blob/main/Cookie_CSS_GreatPages/Cookie.md)
+|  Botão do Whatsapp Flutuante  | https://github.com/suchsoak/Pacote-de-Front-end/tree/main/Whatsapp_Botão
 
 # License & Copyright
 `BSD 3-Clause "New" or "Revised" License - Copyright (c) 2025, ~#M?x`
