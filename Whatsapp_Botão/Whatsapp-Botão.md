@@ -2,6 +2,13 @@
 
 Nesse script escrito em `html`, está o botão flutuante do whatsapp que ficará fixado no canto inferior direito da tela.
 
+<p align="center">
+  <img src="https://github.com/suchsoak/Pacote-de-Front-end/blob/main/Whatsapp_Botão/Captura%20de%20tela%202025-03-25%20115648.png">
+</p>
+
+>[!NOTE]
+> A cor padrão está `laranja (#e54b1e)` , porque foi utilizada para um cliente em especifico.
+
 ```sh
 :root {
         --icon-color: #fff;
@@ -49,4 +56,4 @@ Aqui você muda a pulsação do botão, serão as *cores que estarão mostrando*
 
 | Utilitários |  Link |
 | ------ | ------ |
-|  GreatPages  | https://ajuda.greatsoftwares.com.br/pt-br/article/como-criar-um-botao-flutuante-do-whatsapp-19a12fy/
+|  GreatPages Whatsapp Botão Flutuante  | https://ajuda.greatsoftwares.com.br/pt-br/article/como-criar-um-botao-flutuante-do-whatsapp-19a12fy/
