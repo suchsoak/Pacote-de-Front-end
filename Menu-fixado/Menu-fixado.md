@@ -51,5 +51,6 @@ window.addEventListener('scroll', function(){
 | 📄 HTML | [MDN - HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML) |
 | 📌 Menu Sticky | [GreatPages Docs](https://ajuda.greatsoftwares.com.br/pt-br/article/como-manter-um-menu-fixo-na-tela-sticky-menu-3uhsx8/) |
 
-🔗 [Ver Script Completo](https://github.com/suchsoak/Pacote-de-Front-end/blob/main/index.html)
+🔗 [Ver Script Completo](https://github.com/suchsoak/Pacote-de-Front-end/blob/main/Menu-fixado/index.html)
+
 
