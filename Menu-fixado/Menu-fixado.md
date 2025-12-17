@@ -28,17 +28,15 @@ window.addEventListener('scroll', function () {
 ### Minha Versão (Otimizada)
 
 ```js
-console.log("Menu-fixado carregado com sucesso!");
-
 window.addEventListener('scroll', function(){
-    if ((window.pageYOffset || window.scrollY) > 0) {             
-        $('.e_1076967_1_176303728847048113').css({ 'position': 'fixed','left': '180px', 'z-index': '9999' });
-        $('.e_1076967_1_07694').css({ 'position': 'fixed', 'left': '480px', 'z-index': '9999'});
-    } else {
-        $('.e_1076967_1_176303728847048113').css({ 'position': '', 'left': '-82px' });
-        $('.e_1076967_1_07694').css({ 'position': '', 'left': '260px' });
-    }
-});
+        // Home
+         if ((window.pageYOffset || window.scrollY) > 0) {             
+             $('.e_1076967_1_176303728847048113').css({ 'position': 'fixed','left': '100px', 'z-index': '9999' });
+             console.log("fixado");
+         } else {
+             $('.e_1076967_1_176303728847048113').css({ 'position': '', 'left': '-160px' });
+             console.log("desfixado");
+         }
 ```
 
 ## 📚 Recursos Úteis
@@ -52,5 +50,6 @@ window.addEventListener('scroll', function(){
 | 📌 Menu Sticky | [GreatPages Docs](https://ajuda.greatsoftwares.com.br/pt-br/article/como-manter-um-menu-fixo-na-tela-sticky-menu-3uhsx8/) |
 
 🔗 [Ver Script Completo](https://github.com/suchsoak/Pacote-de-Front-end/blob/main/Menu-fixado/index.html)
+
 
 
