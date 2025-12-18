@@ -11,6 +11,7 @@ Um repositório com formulários, botões e diversas funções para ajudar a dei
 | 🍪 Cookie CSS para GreatPages | [https://github.com/suchsoak/Pacote-de-Front-end/tree/main/Cookie_CSS_GreatPages](https://github.com/suchsoak/Pacote-de-Front-end/blob/main/Cookie_CSS_GreatPages/Cookie.md) |
 | 💬 WhatsApp Flutuante | [https://github.com/suchsoak/Pacote-de-Front-end/tree/main/Whatsapp_Botão](https://github.com/suchsoak/Pacote-de-Front-end/tree/main/Whatsapp_Botão) |
 | 📌 Menu Fixado | [https://github.com/suchsoak/Pacote-de-Front-end/blob/main/Menu-fixado/Menu-fixado.md](https://github.com/suchsoak/Pacote-de-Front-end/blob/main/Menu-fixado/Menu-fixado.md) |
+| 🍔 Menu Hamburguer | [https://github.com/suchsoak/Pacote-de-Front-end/blob/main/Menu-Hamburguer/Menu-fixado.md](https://github.com/suchsoak/Pacote-de-Front-end/blob/main/Menu-Hamburguer/Menu-fixado.md) |
 
 ## 📜 Licença & Direitos Autorais
 
