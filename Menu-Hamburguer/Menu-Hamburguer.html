@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu-Hamburguer</title>
+</head>
+<body>
+    
+// Menu Hamburguer fixado ao rolar a página
+
+<style>
+   /* Personalize o seu menu (ALTERE AQUI)*/
+   :root {
+     --color-icon: #012f3f; /* Cor do ícone */
+     --color-background-icon: #FFFFFF; /* Cor de fundo do ícone */
+     --text-color: #012f3f; /* Cor do texto */
+     --text-background-color: #FFFFFF; /* Cor de fundo do menu */
+     --hover-color: #afff00; /* Cor de fundo ao passar o mouse */
+     --menu-icon-size: 17px; /* Tamanho do ícone do menu */
+   }
+
+   /* Configurações gerais para o menu (NÃO ALTERAR) */
+   @media (min-width: 768px) { .custom-menu { display: none; } }
+   .custom-menu { background: var(--color-background-icon);box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);border-radius: 20%; padding: 5px; position: fixed; top: 12px; left: 12px; z-index: 9000;cursor: pointer; }
+   .custom-menu-button { height:38px;pointer-events:none;color: var(--color-icon); background-color: transparent; padding: 10px; font-size: var(--menu-icon-size); text-transform: uppercase; font-weight: bold; border: none; }
+   .custom-menu-content { background-color: var(--text-background-color); min-width: 170px; position: absolute; display: none; }
+   .custom-menu-content a { color: var(--text-color); padding: 10px 14px; text-decoration: none; font-size: 15px; display: block; }
+   .custom-menu-content a:hover { background-color: var(--hover-color); }
+   .custom-menu.right .custom-menu-content { left: auto; right: 15px; }  
+   .custom-menu.left .custom-menu-content { left: 15px; }
+ </style>
+
+   <!-- Personalize o redirecionamento (ALTERE AQUI)-->
+<div class="custom-menu left" onclick="toggleMenu()">
+  <button class="custom-menu-button"><svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 448 512" style="width: var(--menu-icon-size); height: var(--menu-icon-size);"><path fill="currentColor" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></button>
+  <div class="custom-menu-content">
+    <div class="menu-content-url">
+      <a href="#e_1076967_1_55277_m">Expositores</a>
+      <a href="#e_1076967_1_18701_m">Sobre</a>
+      <a href="#e_1076967_1_173411400344924559">Conheça Aracaju</a>
+      <a href="#e_1076967_1_43063">Credenciamento</a>
+      <a href="https://www.expoaju.com.br/obrigado" target="_blank">Edição 2026</a>
+    </div>
+  </div>
+</div>
+
+<!--Configurações gerais para o menu (NÃO ALTERAR)-->
+<script> 
+function toggleMenu() {
+     var menuContent = document.querySelector('.custom-menu-content');
+     menuContent.style.display = menuContent.style.display === 'block' ? '' : 'block';
+     event.stopPropagation(); 
+   };
+   window.toggleMenu = toggleMenu;
+   document.addEventListener('click', function(event) {
+    var menuContent = document.querySelector('.custom-menu-content');
+    var menuButton = document.querySelector('.custom-menu-button');
+    if (!menuContent.contains(event.target) && !menuButton.contains(event.target)) {
+      menuContent.style.display = '';
+    }
+  });
+ </script>
+</body>
+</html>
