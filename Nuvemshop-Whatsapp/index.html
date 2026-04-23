@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuvemshop - Whatsapp</title>
+</head>
+
+<style>
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 25, 50, 0.7);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+
+.modal-box {
+  background: #fff;
+  border-radius: 14px;
+  padding: 25px;
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  animation: fadeInUp .3s ease;
+  position: relative;
+  font-family: Arial, sans-serif;
+}
+
+.modal-box h2 {
+  margin: 0 0 5px;
+  color: #0d47a1;
+}
+
+.modal-sub {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.modal-box input,
+.modal-box textarea,
+.modal-box select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #d0d7e2;
+}
+
+.modal-box input:focus,
+.modal-box textarea:focus,
+.modal-box select:focus {
+  border-color: #1976d2;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(25,118,210,.15);
+}
+
+#enviar-whatsapp {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg,#1565c0,#1976d2);
+  color:#fff;
+  border:none;
+  border-radius:10px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.modal-close {
+  position:absolute;
+  top:10px;
+  right:12px;
+  cursor:pointer;
+}
+</style>
+<body>
+    
+<div id="modal-orcamento" class="modal-overlay">
+  <div class="modal-box">
+
+    <span id="fechar-modal" class="modal-close">✖</span>
+
+    <h2>Solicitar cotação</h2>
+    <p class="modal-sub">Preencha e fale direto com um especialista</p>
+
+    <input type="text" id="nome" placeholder="Seu nome">
+    <input type="email" id="email" placeholder="Seu email">
+    <input type="text" id="cidade" placeholder="Sua cidade">
+
+    <select id="urgencia">
+      <option value="">Nível de urgência</option>
+      <option value="Baixa">Baixa</option>
+      <option value="Média">Média</option>
+      <option value="Alta">Alta</option>
+    </select>
+
+    <textarea id="mensagem" placeholder="Descreva sua necessidade"></textarea>
+
+    <button id="enviar-whatsapp" type="button">
+      💬 Enviar para WhatsApp
+    </button>
+
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const modal = document.getElementById('modal-orcamento');
+  if (!modal) return;
+
+  document.addEventListener("click", function(e){
+
+    // 🔵 ABRIR MODAL
+    if (e.target.classList.contains("js-addtocart")) {
+      e.preventDefault();
+      e.stopPropagation();
+      modal.style.display = "flex";
+    }
+
+    // ❌ FECHAR
+    if (e.target.id === "fechar-modal" || e.target.id === "modal-orcamento") {
+      modal.style.display = "none";
+    }
+
+    // 📲 ENVIAR WHATSAPP
+    if (e.target.id === "enviar-whatsapp") {
+
+      const nome = modal.querySelector('#nome')?.value?.trim() || "";
+      const email = modal.querySelector('#email')?.value?.trim() || "";
+      const cidade = modal.querySelector('#cidade')?.value?.trim() || "";
+      const urgencia = modal.querySelector('#urgencia')?.value || "";
+      const mensagemCliente = modal.querySelector('#mensagem')?.value?.trim() || "";
+
+      if (!nome || !email) {
+        alert("Preencha nome e email!");
+        return;
+      }
+
+      // 📦 PRODUTO
+      const produto =
+        document.querySelector('[data-store="product-name"]')?.innerText ||
+        document.querySelector('.product-name')?.innerText ||
+        document.title;
+
+      // 🔧 VARIAÇÕES INTELIGENTES
+      let variacoesDetalhadas = [];
+
+      // SELECT (filtrado)
+      document.querySelectorAll('select[name*="id"], select[data-variant]').forEach(select => {
+
+        const valor = select.options[select.selectedIndex]?.text?.trim();
+        if (!valor) return;
+
+        if (
+          valor.toLowerCase().includes("selecione") ||
+          valor.toLowerCase() === "início"
+        ) return;
+
+        const label =
+          document.querySelector(`label[for="${select.id}"]`)?.innerText ||
+          select.name ||
+          "Opção";
+
+        variacoesDetalhadas.push(`${label}: ${valor}`);
+      });
+
+      // RADIO
+      document.querySelectorAll('input[type="radio"]:checked').forEach(radio => {
+        if (!radio.value) return;
+
+        const label =
+          document.querySelector(`label[for="${radio.id}"]`)?.innerText ||
+          radio.name ||
+          "Opção";
+
+        variacoesDetalhadas.push(`${label}: ${radio.value}`);
+      });
+
+      // BOTÕES (tamanho, etc.)
+      document.querySelectorAll('.selected, .active, .js-variation-option.selected').forEach(el => {
+
+        const valor = el.innerText.trim();
+        if (!valor || valor.length > 30) return;
+
+        if (
+          valor.toLowerCase().includes("início") ||
+          valor.toLowerCase().includes("home")
+        ) return;
+
+        const grupo =
+          el.closest('[data-variation-name]')?.getAttribute('data-variation-name') ||
+          el.closest('.product-variation')?.innerText.split('\n')[0] ||
+          "Opção";
+
+        if (!variacoesDetalhadas.some(v => v.includes(valor))) {
+          variacoesDetalhadas.push(`${grupo}: ${valor}`);
+        }
+      });
+
+      const variacaoFinal = variacoesDetalhadas.length
+        ? variacoesDetalhadas.join('\n')
+        : 'Não selecionada';
+
+      // 💬 MENSAGEM FINAL
+      const mensagem =
+`*📩 NOVA SOLICITAÇÃO DE COTAÇÃO*
+
+👤 *Cliente:*
+${nome}
+
+📧 *Email:*
+${email}
+
+📍 *Cidade:*
+${cidade || 'Não informado'}
+
+⚡ *Urgência:*
+${urgencia || 'Não informada'}
+
+━━━━━━━━━━━━━━━━━━
+
+📦 *Produto:*
+${produto}
+
+🔧 *Especificações do produto:*
+${variacaoFinal}
+
+━━━━━━━━━━━━━━━━━━
+
+📝 *Detalhes do pedido:*
+${mensagemCliente || 'Não informado'}
+
+━━━━━━━━━━━━━━━━━━
+
+📲 *Enviado pelo site*`;
+
+      const url = "https://api.whatsapp.com/send?phone=557996410416&text=" + encodeURIComponent(mensagem);
+
+      window.location.href = url;
+    }
+
+  });
+
+});
+</script>
+
+</body>
+</html>
