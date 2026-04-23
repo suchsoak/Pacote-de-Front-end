@@ -2,6 +2,8 @@
 
 Este projeto implementa um **modal de solicitação de cotação integrado ao WhatsApp** dentro de lojas da Nuvemshop.
 
+<img src="https://github.com/suchsoak/Pacote-de-Front-end/blob/main/Nuvemshop-Whatsapp/Exemplo.png">
+
 A solução substitui o botão padrão de compra por um fluxo mais estratégico, permitindo que o cliente envie um pedido detalhado diretamente para atendimento.
 
 ---
